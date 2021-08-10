@@ -1,15 +1,20 @@
-<?php
+<?php declare(strict_types = 1);
 /**
  * @var $block \Magebit\PageListWidget\Block\Widget\PageList
  * @see \Magebit\PageListWidget\Block\Widget\PageList
  */
 
-$data = $block->getPageUrls();
-
+try {
+    $data = $block->getPageUrls();
+    ?>
+    <h3><?= $block->getData('title') ?></h3>
+    <ul>
+        <?php foreach ($data as $page) : ?>
+            <li><a href="<?= $page['url'] ?>"><?= $page['title'] ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
+} catch (\Magento\Framework\Exception\LocalizedException $e) {
+    $this->logger->critical($e);
+}
 ?>
-<h3><?= $block->getData('title') ?></h3>
-<ul>
-    <?php foreach ($data as $page) : ?>
-        <li><a href="<?= $page['url'] ?>"><?= $page['title'] ?></a></li>
-    <?php endforeach; ?>
-</ul>

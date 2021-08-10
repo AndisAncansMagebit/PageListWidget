@@ -3,21 +3,21 @@
 /**
  * Magebit_PageListWidget
  *
- * @category	Magebit
- * @package		Magebit_PageListWidget
- * @author		Andis Ancans <info@magebit.com>
- * @copyright   Copyright (c) 2021 Magebit, Ltd.
- * @license		http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
+ * @category        Magebit
+ * @package         Magebit_PageListWidget
+ * @author          Andis Ancans <info@magebit.com>
+ * @copyright       Copyright (c) 2021 Magebit, Ltd.
+ * @license         http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
  */
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget class="Magebit\PageListWidget\Block\Widget\PageList" id="magebit-page-list-widget">
-        <label>Magebit Page List Widget</label>
-        <description>Widget</description>
+        <label translate="true">Magebit Page List Widget</label>
+        <description translate="true">Widget</description>
         <parameters>
             <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="1">
-                <label>Title</label>
+                <label translate="true">Title</label>
             </parameter>
             <parameter name="page_scope" xsi:type="select" visible="true" required="true" sort_order="2">
                 <label translate="true">Display Mode</label>
@@ -30,8 +30,12 @@
                     </option>
                 </options>
             </parameter>
-            <parameter name="pages" xsi:type="multiselect" visible="true" required="true" sort_order="3" source_model="Magento\Cms\Model\Config\Source\Page">
-                <label>Selected pages</label>
+            <parameter name="pages" xsi:type="multiselect"
+               visible="true"
+               required="true"
+               sort_order="3"
+               source_model="Magento\Cms\Model\Config\Source\Page">
+                <label translate="true">Selected pages</label>
                 <depends>
                     <parameter name="page_scope" value="0" />
                 </depends>
