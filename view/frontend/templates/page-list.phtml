@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var $block \Magebit\PageListWidget\Block\Widget\PageList
+ * @see \Magebit\PageListWidget\Block\Widget\PageList
+ */
+
+$data = $block->getPageUrls();
+
+?>
+<h3><?= $block->getData('title') ?></h3>
+<ul>
+    <?php foreach ($data as $page) : ?>
+        <li><a href="<?= $page['url'] ?>"><?= $page['title'] ?></a></li>
+    <?php endforeach; ?>
+</ul>
