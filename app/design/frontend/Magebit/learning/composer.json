@@ -1,0 +1,10 @@
+{
+  "name": "magebit/learning",
+  "description": "Magebit learning theme for Magento 2",
+  "type": "magento2-theme",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ]
+  }
+}

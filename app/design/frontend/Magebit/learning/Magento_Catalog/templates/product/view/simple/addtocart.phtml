@@ -1,0 +1,64 @@
+<?php
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php
+$_product = $block->getProduct();
+$maxQty = $_product->getData('quantity_and_stock_status')['qty'];
+?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) :?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity()) :?>
+        <div class="field qty">
+            <div id="custom-qty" data-bind="scope: 'qty-counter'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <script type="text/x-magento-init">
+                    {
+                        "#custom-qty": {
+                            "Magento_Ui/js/core/app": {
+                                "components": {
+                                    "qty-counter": {
+                                        "component": "Magento_Catalog/js/qty-counter",
+                                        "config": {
+                                            "qty": <?= $block->getProductDefaultQty()?>,
+                                            "maxQty": <?= $maxQty ?>
+                                        }
+                                    }
+                                 }
+                            }
+                        }
+                    }
+                </script>
+                <?php if ($_product->getIsSalable()):?>
+                    <div class="stock-available">
+                        <div class="stock"><span><?= __('In stock') ?></span> <?= $maxQty ?> item<?= $maxQty > 1 ? __('s') : '' ?> available</div>
+                    </div>
+                <?php else:?>
+                    <div class="stock unavailable">
+                        <span><?= __('Out of stock') ?></span>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="actions">
+            <button type="submit"
+                    title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                    class="action primary tocart simple-tocart"
+                    id="product-addtocart-button" disabled>
+                <span><?= $block->escapeHtml($buttonTitle) ?></span>
+            </button>
+            <?= $block->getChildHtml('', true) ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>

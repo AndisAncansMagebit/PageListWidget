@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var $block \Magento\Catalog\Block\Product\View\Attributes
+ */
+
+$attr_count = 3;
+
+$_helper = $this->helper(Magento\Catalog\Helper\Output::class);
+$_product = $block->getProduct();
+?>
+<?php if ($_additional = $block->getAdditionalData()) :?>
+    <div class="additional-attributes-wrapper-simple table-wrapper">
+        <ul class="additional-attributes">
+        <?php foreach ($_additional as $_data) :?>
+            <li>
+                <strong><?= $block->escapeHtml($_data['label']) ?>:</strong>
+                <?= /* @noEscape */ $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?>
+            </li>
+        <?php
+        $attr_count--;
+        if ($attr_count === 0) break;
+        endforeach; ?>
+        </ul>
+        <?php if ($_product->getShortDescription()): ?>
+            <span class="short-description"><?= $_product->getShortDescription() ?></span>
+        <?php endif; ?>
+    </div>
+<?php endif;?>
