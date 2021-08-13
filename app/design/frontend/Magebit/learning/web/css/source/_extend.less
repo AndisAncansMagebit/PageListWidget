@@ -1,3 +1,7 @@
+@color-black: #333333;
+@color-orange: #FF5501;
+@color-gray-border: #C2C2C2;
+
 .catalog-product-view-simple {
   .column.main {
     .product.media {
@@ -46,7 +50,7 @@
         .reviews-actions {
           a.action.view {
             text-decoration: underline;
-            color: #FF5501;
+            color: @color-orange;
             font-size: 12px;
             margin-right: 17px;
           }
@@ -59,8 +63,8 @@
             font-style: normal;
             font-size: 12px;
             font-weight: 600;
-            color: #333333;
-            border: 1px solid #333333;
+            color: @color-black;
+            border: 1px solid @color-black;
             border-radius: 2px;
             padding: 5px 10px 4px 9px;
           }
@@ -125,7 +129,7 @@
                   content: "";
                   height: 2px;
                   width: 10px;
-                  background: #333333;
+                  background: @color-black;
                   position: absolute;
                   left: 20px;
                 }
@@ -135,7 +139,7 @@
                 &::before,
                 &::after {
                   content: "";
-                  background: #FF5501;
+                  background: @color-orange;
                   position: absolute;
                 }
 
@@ -210,8 +214,8 @@
 
           .actions {
             button.action.tocart {
-              background: #FF5501;
-              border: #FF5501;
+              background: @color-orange;
+              border: @color-orange;
               width: 100%;
               height: 52px;
             }
@@ -249,7 +253,7 @@
         .block-title.title {
           padding-bottom: 8px;
           margin-bottom: 0;
-          border-bottom: 1px solid #C2C2C2;
+          border-bottom: 1px solid @color-gray-border;
 
           #block-upsell-heading {
             font-size: 16px;
@@ -333,7 +337,7 @@
                       text-align: center;
                       color: #FFFFFF;
                       padding: 6px 0 7px;
-                      background: #333333;
+                      background: @color-black;
                       border-radius: 2px;
 
                       &:hover {
@@ -354,7 +358,7 @@
       width: 100%;
 
       .block-title.title {
-        border-bottom: 1px solid #C2C2C2;
+        border-bottom: 1px solid @color-gray-border;
         padding-bottom: 21px;
 
         strong#block-related-heading {
@@ -440,7 +444,7 @@
 
                     .reviews-actions {
                       .action {
-                        color: #FF5501;
+                        color: @color-orange;
                       }
                     }
                   }
@@ -456,7 +460,7 @@
                       .tocart {
                         width: 100%;
                         height: 52px;
-                        background: #FF5501;
+                        background: @color-orange;
                         border: none;
 
                         span {
