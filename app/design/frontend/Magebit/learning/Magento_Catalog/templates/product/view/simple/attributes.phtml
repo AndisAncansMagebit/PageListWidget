@@ -1,6 +1,7 @@
 <?php
 /**
  * @var $block \Magento\Catalog\Block\Product\View\Attributes
+ * @var $escaper \Magento\Framework\Escaper
  */
 
 $attr_count = 3;
@@ -13,7 +14,7 @@ $_product = $block->getProduct();
         <ul class="additional-attributes">
         <?php foreach ($_additional as $_data) :?>
             <li>
-                <strong><?= $block->escapeHtml($_data['label']) ?>:</strong>
+                <strong><?= $escaper->escapeHtml($_data['label']) ?>:</strong>
                 <?= /* @noEscape */ $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?>
             </li>
         <?php
@@ -22,7 +23,7 @@ $_product = $block->getProduct();
         endforeach; ?>
         </ul>
         <?php if ($_product->getShortDescription()): ?>
-            <span class="short-description"><?= $_product->getShortDescription() ?></span>
+            <span class="short-description"><?= $escaper->escapeHtml($_product->getShortDescription(), ['p']) ?></span>
         <?php endif; ?>
     </div>
 <?php endif;?>
