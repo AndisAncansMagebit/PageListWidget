@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magebit_Faq
+ *
+ * @category        Magebit
+ * @package         Magebit_Faq
+ * @author          Andis Ancans <info@magebit.com>
+ * @copyright       Copyright (c) 2021 Magebit, Ltd.
+ * @license         http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magebit_Faq::faq_control"
+             title="Frequently Asked Questions"
+             translate="title" module="Magebit_Faq"
+             parent="Magento_Backend::content_elements"
+             sortOrder="60"
+             action="faq/question"
+             resource="Magebit_Faq::question"/>
+    </menu>
+</config>

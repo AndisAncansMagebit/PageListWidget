@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magebit_Faq
+ *
+ * @category        Magebit
+ * @package         Magebit_Faq
+ * @author          Andis Ancans <info@magebit.com>
+ * @copyright       Copyright (c) 2021 Magebit, Ltd.
+ * @license         http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0 (OSL-3.0)
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magebit_faq_questions" resource="default" engine="innodb">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="ID"/>
+        <column xsi:type="text" name="question" nullable="false" comment="Faq Question"/>
+        <column xsi:type="text" name="answer" nullable="false" comment="Faq Answer"/>
+        <column xsi:type="smallint" name="status" nullable="false" comment="Status" default="0"/>
+        <column xsi:type="int" name="position" nullable="false" comment="Position" default="0"/>
+        <column xsi:type="datetime" name="updated_at" on_update="true" comment="Updated at"
+                default="CURRENT_TIMESTAMP"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

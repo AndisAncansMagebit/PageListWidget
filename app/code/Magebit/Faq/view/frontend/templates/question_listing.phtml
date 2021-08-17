@@ -1,0 +1,29 @@
+<?php declare(strict_types = 1);
+
+use Magebit\Faq\Block\QuestionList;
+
+/**
+ * @var QuestionList $block
+ */
+
+$questions = $block->prepareQuestions();
+?>
+<h1 class="title"><?= __('Frequently Asked Questions') ?></h1>
+<div id="faq-listing">
+    <?php foreach ($questions as $question): ?>
+        <div class="question-title" data-role="collapsible">
+            <div data-role="trigger">
+                <span><?= $question['question'] ?></span>
+            </div>
+        </div>
+        <div class="question-content" data-role="content"><?= $question['answer'] ?></div>
+    <?php endforeach; ?>
+</div>
+
+<script>
+    require([
+        'jquery',
+        'accordion'], function ($) {
+        $("#faq-listing").accordion();
+    });
+</script>

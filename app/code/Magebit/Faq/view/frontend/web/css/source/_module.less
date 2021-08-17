@@ -1,0 +1,22 @@
+@title-background: #f0f0f0;
+@padding-rows: 10px;
+@fontsize-question-answer: 18px;
+
+.base-styling-rows-mixin() {
+  padding: @padding-rows;
+  font-size: @fontsize-question-answer;
+}
+
+body.faq-index-index {
+  .columns {
+    #faq-listing {
+      .question-title {
+        background-color: @title-background;
+        .base-styling-rows-mixin();
+      }
+      .question-content {
+        .base-styling-rows-mixin();
+      }
+    }
+  }
+}
