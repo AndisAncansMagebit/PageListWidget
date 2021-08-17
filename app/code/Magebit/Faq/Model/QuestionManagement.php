@@ -46,6 +46,7 @@ class QuestionManagement implements QuestionManagementInterface
             $question->setStatus(Question::STATUS_ENABLED);
             $this->questionRepository->save($question);
         }
+
         return $question;
     }
 
@@ -64,6 +65,7 @@ class QuestionManagement implements QuestionManagementInterface
             $question->setStatus(Question::STATUS_DISABLED);
             $this->questionRepository->save($question);
         }
+
         return $question;
     }
 }

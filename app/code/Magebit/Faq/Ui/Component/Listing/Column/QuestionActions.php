@@ -96,6 +96,7 @@ class QuestionActions extends Column
                 }
             }
         }
+
         return $dataSource;
     }
 }

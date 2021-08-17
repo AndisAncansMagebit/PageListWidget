@@ -93,6 +93,7 @@ class QuestionRepository implements QuestionRepositoryInterface
         } catch (\Exception $exception) {
             throw new CouldNotSaveException(__($exception->getMessage()));
         }
+
         return $faq;
     }
 
@@ -123,6 +124,7 @@ class QuestionRepository implements QuestionRepositoryInterface
         if (!$question->getId()) {
             throw new NoSuchEntityException(__('Unable to find Question with ID "%1"', $id));
         }
+
         return $question;
     }
 

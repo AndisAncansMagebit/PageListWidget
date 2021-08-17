@@ -76,6 +76,7 @@ class Save extends Action implements HttpPostActionInterface
                     $model = $this->questionRepository->getById($id);
                 } catch (LocalizedException $e) {
                     $this->messageManager->addErrorMessage(__('This question no longer exists.'));
+
                     return $resultRedirect->setPath('*/*/');
                 }
             }
@@ -93,6 +94,7 @@ class Save extends Action implements HttpPostActionInterface
 
             return $resultRedirect->setPath('*/*/');
         }
+
         return $resultRedirect->setPath('*/*/');
     }
 

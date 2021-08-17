@@ -88,6 +88,7 @@ class MassDisable extends Action implements HttpPostActionInterface
 
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+
         return $resultRedirect->setPath('*/*/');
     }
 }

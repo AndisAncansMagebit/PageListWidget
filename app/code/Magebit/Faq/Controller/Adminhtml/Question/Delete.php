@@ -57,6 +57,7 @@ class Delete extends Action implements HttpPostActionInterface
             }
         }
         $this->messageManager->addErrorMessage(__('We can\'t find a question to delete.'));
+
         return $resultRedirect->setPath('*/*/');
     }
 }
