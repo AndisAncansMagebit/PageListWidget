@@ -18,6 +18,7 @@ use Magebit\Faq\Model\Question;
 use Magento\Backend\App\Action;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Exception\LocalizedException;
 
 class Save extends Action implements HttpPostActionInterface
@@ -52,9 +53,9 @@ class Save extends Action implements HttpPostActionInterface
      * Save action
      *
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
-    public function execute()
+    public function execute(): ResultInterface
     {
 
         $resultRedirect = $this->resultRedirectFactory->create();

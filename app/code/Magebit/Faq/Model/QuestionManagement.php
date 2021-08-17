@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php declare(strict_types=1);
 
 /**
  * Magebit_Faq
@@ -21,7 +21,7 @@ class QuestionManagement implements QuestionManagementInterface
     /**
      * @var QuestionRepository
      */
-    protected $questionRepository;
+    private $questionRepository;
 
     /**
      * @param QuestionRepository $questionRepository
@@ -38,7 +38,7 @@ class QuestionManagement implements QuestionManagementInterface
      * @throws CouldNotSaveException
      * @throws NoSuchEntityException
      */
-    public function enableQuestion($id)
+    public function enableQuestion($id): Question
     {
         $question = $this->questionRepository->getById($id);
 
@@ -46,6 +46,7 @@ class QuestionManagement implements QuestionManagementInterface
             $question->setStatus(Question::STATUS_ENABLED);
             $this->questionRepository->save($question);
         }
+        return $question;
     }
 
     /**
@@ -55,7 +56,7 @@ class QuestionManagement implements QuestionManagementInterface
      * @throws CouldNotSaveException
      * @throws NoSuchEntityException
      */
-    public function disableQuestion($id)
+    public function disableQuestion($id): Question
     {
         $question = $this->questionRepository->getById($id);
 
@@ -63,5 +64,6 @@ class QuestionManagement implements QuestionManagementInterface
             $question->setStatus(Question::STATUS_DISABLED);
             $this->questionRepository->save($question);
         }
+        return $question;
     }
 }

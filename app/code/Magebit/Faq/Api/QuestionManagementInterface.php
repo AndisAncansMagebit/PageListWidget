@@ -11,11 +11,21 @@
 
 namespace Magebit\Faq\Api;
 
+use Magebit\Faq\Model\Question;
+
 interface QuestionManagementInterface
 {
 
-    public function enableQuestion($id);
+    /**
+     * @param $id
+     * @return Question
+     */
+    public function enableQuestion($id): Question;
 
-    public function disableQuestion($id);
+    /**
+     * @param $id
+     * @return Question
+     */
+    public function disableQuestion($id): Question;
 
 }

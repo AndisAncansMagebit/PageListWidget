@@ -36,12 +36,12 @@ class MassDelete extends Action implements HttpPostActionInterface
     /**
      * @var Filter
      */
-    protected $filter;
+    private $filter;
 
     /**
      * @var CollectionFactory
      */
-    protected $collectionFactory;
+    private $collectionFactory;
 
     /**
      * @param Context $context
@@ -61,7 +61,7 @@ class MassDelete extends Action implements HttpPostActionInterface
      * @return Redirect
      * @throws LocalizedException|Exception
      */
-    public function execute()
+    public function execute(): Redirect
     {
         $collection = $this->filter->getCollection($this->collectionFactory->create());
         $collectionSize = $collection->getSize();

@@ -31,12 +31,12 @@ class InlineEdit extends Action
     /**
      * @var QuestionRepository
      */
-    protected $questionRepository;
+    private $questionRepository;
 
     /**
      * @var JsonFactory
      */
-    protected $jsonFactory;
+    private $jsonFactory;
 
     /**
      * @param Context $context

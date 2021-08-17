@@ -14,6 +14,7 @@ namespace Magebit\Faq\Controller\Index;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\Result\Forward;
 use Magento\Framework\Controller\Result\ForwardFactory;
+use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 
 class Index implements HttpGetActionInterface
@@ -21,7 +22,7 @@ class Index implements HttpGetActionInterface
     /**
      * @var ForwardFactory
      */
-    protected $resultPageFactory;
+    private $resultPageFactory;
 
     /**
      * Index constructor.
@@ -35,7 +36,7 @@ class Index implements HttpGetActionInterface
     /**
      * Renders Faq Home page
      *
-     * @return Forward|\Magento\Framework\View\Result\Page
+     * @return Forward|Page
      */
     public function execute()
     {

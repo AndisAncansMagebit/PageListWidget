@@ -18,12 +18,15 @@ use Magento\Ui\DataProvider\ModifierPoolDataProvider;
 class DataProvider extends ModifierPoolDataProvider
 {
 
+    /**
+     * @var Collection
+     */
     protected $collection;
 
     /**
      * @var array
      */
-    protected $loadedData;
+    private $loadedData;
 
     /**
      * Constructor
@@ -54,7 +57,7 @@ class DataProvider extends ModifierPoolDataProvider
      *
      * @return array
      */
-    public function getData()
+    public function getData(): array
     {
         if (isset($this->loadedData)) {
             return $this->loadedData;
@@ -74,5 +77,4 @@ class DataProvider extends ModifierPoolDataProvider
 
         return $this->loadedData;
     }
-
 }

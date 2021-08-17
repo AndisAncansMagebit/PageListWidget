@@ -15,6 +15,7 @@ use Magebit\Faq\Model\QuestionRepository;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\Framework\Controller\ResultInterface;
 
 class Delete extends Action implements HttpPostActionInterface
 {
@@ -38,9 +39,9 @@ class Delete extends Action implements HttpPostActionInterface
     /**
      * Delete action
      *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
-    public function execute()
+    public function execute(): ResultInterface
     {
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();

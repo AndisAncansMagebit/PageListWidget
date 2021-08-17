@@ -25,22 +25,23 @@ class QuestionList extends Template
     /**
      * @var QuestionRepository
      */
-    protected $questionRepository;
+    private $questionRepository;
 
     /**
      * @var SearchCriteriaBuilder
      */
-    protected $searchCriteriaBuilder;
+    private $searchCriteriaBuilder;
 
     /**
      * @var SortOrderBuilder
      */
-    protected $sortOrderBuilder;
+    private $sortOrderBuilder;
 
     /**
      * @param Context $context
      * @param QuestionRepository $questionRepository
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param SortOrderBuilder $sortOrderBuilder
      */
     public function __construct(
         Context $context,

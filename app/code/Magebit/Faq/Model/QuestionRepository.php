@@ -23,7 +23,6 @@ use Magento\Framework\Exception\NoSuchEntityException;
 
 class QuestionRepository implements QuestionRepositoryInterface
 {
-
     /**
      * @var QuestionFactory
      */
@@ -54,6 +53,14 @@ class QuestionRepository implements QuestionRepositoryInterface
      */
     private $hydrator;
 
+    /**
+     * @param QuestionFactory $questionFactory
+     * @param ResourceModel\Question $questionResource
+     * @param CollectionFactory $questionCollectionFactory
+     * @param QuestionSearchResultsFactory $questionSearchResultsFactory
+     * @param CollectionProcessorInterface $collectionProcessor
+     * @param HydratorInterface $hydrator
+     */
     public function __construct(
         QuestionFactory $questionFactory,
         ResourceModel\Question $questionResource,
@@ -108,7 +115,7 @@ class QuestionRepository implements QuestionRepositoryInterface
      * @return Question
      * @throws NoSuchEntityException
      */
-    public function getById($id)
+    public function getById($id): Question
     {
         $question = $this->questionFactory->create();
         $this->questionResource->load($question, $id);

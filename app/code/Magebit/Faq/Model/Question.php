@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 /**
  * Magebit_Faq
@@ -13,34 +13,57 @@ namespace Magebit\Faq\Model;
 
 use Magebit\Faq\Api\Data\QuestionInterface;
 use Magento\Framework\Api\CustomAttributesDataInterface;
+use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Model\Context;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
+use Magento\Framework\Registry;
 use Magento\Framework\Stdlib\DateTime;
 
 class Question extends AbstractModel implements IdentityInterface, QuestionInterface
 {
-
+    /**
+     * Cache tag
+     */
     const CACHE_TAG = 'magebit_faq_questions';
 
+    /**
+     * @inheirtDoc
+     */
     protected $_cacheTag = 'magebit_faq_questions';
 
+    /**
+     * @inheirtDoc
+     */
     protected $_eventPrefix = 'magebit_faq_questions';
 
+    /**
+     * Constants for Question status
+     */
     const STATUS_ENABLED = 1;
     const STATUS_DISABLED = 0;
 
+    /**
+     * @param Context $context
+     * @param Registry $registry
+     * @param AbstractResource|null $resource
+     * @param AbstractDb|null $resourceCollection
+     * @param array $data
+     */
     public function __construct(
         Context $context,
-        \Magento\Framework\Registry $registry,
+        Registry $registry,
         AbstractResource $resource = null,
-        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
+        AbstractDb $resourceCollection = null,
         array $data = []
     ) {
         parent::__construct($context, $registry, $resource, $resourceCollection, $data);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function _construct()
     {
         $this->_init(ResourceModel\Question::class);
@@ -49,11 +72,14 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function getIdentities()
+    public function getIdentities(): array
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getId()
     {
         return parent::getData(self::ID);

@@ -31,7 +31,7 @@ class QuestionActions extends Column
     /**
      * @var UrlInterface
      */
-    protected $urlBuilder;
+    private $urlBuilder;
 
     /**
      * @var Escaper
@@ -62,7 +62,7 @@ class QuestionActions extends Column
     /**
      * @inheritDoc
      */
-    public function prepareDataSource(array $dataSource)
+    public function prepareDataSource(array $dataSource): array
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {

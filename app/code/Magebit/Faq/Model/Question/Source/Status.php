@@ -19,7 +19,7 @@ class Status implements OptionSourceInterface
     /**
      * @var Question
      */
-    protected $question;
+    private $question;
 
     /**
      * Constructor
@@ -36,7 +36,7 @@ class Status implements OptionSourceInterface
      *
      * @return array
      */
-    public function toOptionArray()
+    public function toOptionArray(): array
     {
         $options = [
             0 => [
