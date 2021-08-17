@@ -36,14 +36,14 @@ interface QuestionInterface extends CustomAttributesDataInterface
      * @return int
      * @since 0.0.1
      */
-    public function getId();
+    public function getId(): int;
 
     /**
      * @param string $question
      * @return $this
      * @since 100.1.0
      */
-    public function setQuestion($question);
+    public function setQuestion(string $question): QuestionInterface;
 
     /**
      * Returns Question field
@@ -51,14 +51,14 @@ interface QuestionInterface extends CustomAttributesDataInterface
      * @return string
      * @since 0.0.1
      */
-    public function getQuestion();
+    public function getQuestion(): string;
 
     /**
      * @param string $answer
      * @return $this
      * @since 100.1.0
      */
-    public function setAnswer($answer);
+    public function setAnswer(string $answer): QuestionInterface;
 
     /**
      * Returns Answer field
@@ -66,14 +66,14 @@ interface QuestionInterface extends CustomAttributesDataInterface
      * @return string
      * @since 0.0.1
      */
-    public function getAnswer();
+    public function getAnswer(): string;
 
     /**
      * @param int $status
      * @return $this
      * @since 100.1.0
      */
-    public function setStatus($status);
+    public function setStatus(int $status): QuestionInterface;
 
     /**
      * Returns Status field
@@ -81,14 +81,14 @@ interface QuestionInterface extends CustomAttributesDataInterface
      * @return int
      * @since 0.0.1
      */
-    public function getStatus();
+    public function getStatus(): int;
 
     /**
      * @param int $position
      * @return $this
      * @since 100.1.0
      */
-    public function setPosition($position);
+    public function setPosition(int $position): QuestionInterface;
 
     /**
      * Returns Position field
@@ -96,7 +96,7 @@ interface QuestionInterface extends CustomAttributesDataInterface
      * @return int
      * @since 0.0.1
      */
-    public function getPosition();
+    public function getPosition(): int;
 
     /**
      * Returns Updated At field
@@ -104,5 +104,5 @@ interface QuestionInterface extends CustomAttributesDataInterface
      * @return DateTime
      * @since 0.0.1
      */
-    public function getUpdatedAt();
+    public function getUpdatedAt(): DateTime;
 }

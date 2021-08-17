@@ -12,6 +12,7 @@
 namespace Magebit\Faq\Model;
 
 use Magebit\Faq\Api\Data\QuestionInterface;
+use Magebit\Faq\Api\Data\QuestionSearchResultsInterface;
 use Magebit\Faq\Api\QuestionRepositoryInterface;
 use Magebit\Faq\Model\ResourceModel\Question\CollectionFactory;
 use Magento\Framework\Api\SearchCriteria;
@@ -81,7 +82,7 @@ class QuestionRepository implements QuestionRepositoryInterface
      * @inheritDoc
      * @throws NoSuchEntityException
      */
-    public function save(QuestionInterface $faq): QuestionInterface
+    public function save(QuestionInterface $faq): Question
     {
         if ($faq->getId() && $faq instanceof QuestionInterface && !$faq->getOrigData()) {
             $faq = $this->hydrator->hydrate($this->getById($faq->getId()), $this->hydrator->extract($faq));
@@ -98,7 +99,7 @@ class QuestionRepository implements QuestionRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function getList(SearchCriteria $searchCriteria)
+    public function getList(SearchCriteria $searchCriteria): QuestionSearchResults
     {
         $collection = $this->questionCollectionFactory->create();
         $this->collectionProcessor->process($searchCriteria, $collection);
@@ -115,7 +116,7 @@ class QuestionRepository implements QuestionRepositoryInterface
      * @return Question
      * @throws NoSuchEntityException
      */
-    public function getById($id): Question
+    public function getById(int $id): Question
     {
         $question = $this->questionFactory->create();
         $this->questionResource->load($question, $id);
@@ -142,7 +143,7 @@ class QuestionRepository implements QuestionRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function deleteById($id)
+    public function deleteById(int $id): Question
     {
         $question = $this->questionFactory->create();
         $this->questionResource->load($question, $id);
@@ -152,5 +153,6 @@ class QuestionRepository implements QuestionRepositoryInterface
             throw new CouldNotDeleteException(__('Could not delete the entry: %1', $exception->getMessage()));
         }
 
+        return $question;
     }
 }

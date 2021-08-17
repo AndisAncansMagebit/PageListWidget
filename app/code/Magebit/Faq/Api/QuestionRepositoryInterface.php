@@ -12,6 +12,7 @@
 namespace Magebit\Faq\Api;
 
 use Magebit\Faq\Api\Data\QuestionInterface;
+use Magebit\Faq\Api\Data\QuestionSearchResultsInterface;
 use Magento\Framework\Api\SearchCriteria;
 use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\CouldNotDeleteException;
@@ -32,14 +33,15 @@ interface QuestionRepositoryInterface
      * @throws AlreadyExistsException
      * @since 0.0.1
      */
-    public function save(QuestionInterface $faq);
+    public function save(QuestionInterface $faq): QuestionInterface;
 
     /**
-     * @return QuestionInterface
+     * @param SearchCriteria $searchCriteria
+     * @return QuestionSearchResultsInterface
      * @throws NoSuchEntityException
      * @since 0.0.1
      */
-    public function getList(SearchCriteria $searchCriteria);
+    public function getList(SearchCriteria $searchCriteria): QuestionSearchResultsInterface;
 
     /**
      * @param int $id
@@ -47,7 +49,7 @@ interface QuestionRepositoryInterface
      * @throws NoSuchEntityException
      * @since 0.0.1
      */
-    public function getById($id);
+    public function getById(int $id): QuestionInterface;
 
     /**
      * @param QuestionInterface $faq
@@ -55,14 +57,14 @@ interface QuestionRepositoryInterface
      * @throws CouldNotDeleteException
      * @since 0.0.1
      */
-    public function delete(QuestionInterface $faq);
+    public function delete(QuestionInterface $faq): bool;
 
     /**
      * @param int $id
-     * @return bool
+     * @return QuestionInterface
      * @throws CouldNotDeleteException
      * @since 0.0.1
      */
-    public function deleteById($id);
+    public function deleteById(int $id): QuestionInterface;
 
 }

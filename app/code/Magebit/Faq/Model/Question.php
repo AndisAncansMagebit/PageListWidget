@@ -20,6 +20,7 @@ use Magento\Framework\Model\Context;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\Registry;
 use Magento\Framework\Stdlib\DateTime;
+use Magento\Tests\NamingConvention\true\string;
 
 class Question extends AbstractModel implements IdentityInterface, QuestionInterface
 {
@@ -80,7 +81,7 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function getId()
+    public function getId(): int
     {
         return parent::getData(self::ID);
     }
@@ -88,7 +89,7 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function setQuestion($question)
+    public function setQuestion(string $question): Question
     {
         return $this->setData(self::QUESTION, $question);
     }
@@ -104,7 +105,7 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function setAnswer($answer)
+    public function setAnswer(string $answer): Question
     {
         return $this->setData(self::ANSWER, $answer);
     }
@@ -112,7 +113,7 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function getAnswer()
+    public function getAnswer(): string
     {
         return $this->getData(self::ANSWER);
     }
@@ -120,7 +121,7 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function setStatus($status)
+    public function setStatus(int $status): Question
     {
         return $this->setData(self::STATUS, $status);
     }
@@ -128,7 +129,7 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function getStatus()
+    public function getStatus(): int
     {
         return $this->getData(self::STATUS);
     }
@@ -136,7 +137,7 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function setPosition($position)
+    public function setPosition(int $position): Question
     {
         return $this->setData(self::POSITION, $position);
     }
@@ -144,7 +145,7 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function getPosition()
+    public function getPosition(): int
     {
         return $this->getData(self::POSITION);
     }
@@ -152,7 +153,7 @@ class Question extends AbstractModel implements IdentityInterface, QuestionInter
     /**
      * @inheritDoc
      */
-    public function getUpdatedAt()
+    public function getUpdatedAt(): DateTime
     {
         return $this->getData(self::UPDATED_AT);
     }
