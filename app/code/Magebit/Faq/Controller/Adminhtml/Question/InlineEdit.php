@@ -98,7 +98,7 @@ class InlineEdit extends Action
      * @param string $errorText
      * @return string
      */
-    protected function getErrorWithQuestionId(Question $question, string $errorText): string
+    protected function getErrorWithQuestionId(Question $question, $errorText): string
     {
         return '[Question ID: ' . $question->getId() . '] ' . $errorText;
     }

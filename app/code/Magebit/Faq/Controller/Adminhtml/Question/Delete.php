@@ -50,9 +50,11 @@ class Delete extends Action implements HttpPostActionInterface
             try {
                 $this->questionRepository->deleteById($id);
                 $this->messageManager->addSuccessMessage(__('You deleted the question.'));
+
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
+
                 return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
             }
         }

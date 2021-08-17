@@ -65,7 +65,6 @@ class DataProvider extends ModifierPoolDataProvider
 
         $items = $this->collection->getItems();
         foreach ($items as $block) {
-
             $this->loadedData[$block->getId()] = $block->getData();
         }
 
